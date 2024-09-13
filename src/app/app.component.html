@@ -1,0 +1,29 @@
+<!-- app.component.html -->
+<div class="container">
+  <h1>{{ title }}</h1>
+
+  <div class="message-form">
+    <input
+      type="text"
+      [(ngModel)]="message"
+      placeholder="Enter your message"
+      class="message-input"
+    />
+    <button (click)="sendMessage()" class="send-button">Send</button>
+  </div>
+
+  <table class="message-table">
+    <thead>
+      <tr>
+        <th>Timestamp</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let msg of messages">
+        <td>{{ msg.timestamp | date:'short' }}</td>
+        <td>{{ msg.content }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
